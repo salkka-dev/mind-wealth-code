@@ -629,9 +629,9 @@
       </ol>
       <div class="worksheet-actions">
         <button class="btn-secondary" onclick="printWorksheet()">기록지 인쇄 / PDF로 저장</button>
-        <button class="btn-secondary" onclick="downloadWorksheet()">빈 CSV 양식 내려받기</button>
+        <a class="btn-secondary" href="7day-worksheet.csv" download="mind-wealth-code-7day-worksheet.csv">빈 CSV 양식 내려받기</a>
       </div>
-      <p class="note screen-only">인쇄 버튼은 브라우저 인쇄 창을 엽니다. CSV는 이 기기에서 빈 양식으로 생성됩니다. 작성한 기록을 이 사이트로 보내는 기능은 없습니다.</p>
+      <p class="note screen-only">인쇄 버튼은 브라우저 인쇄 창을 엽니다. CSV는 작성 내용이 없는 빈 양식 파일입니다. 작성한 기록을 이 사이트로 보내는 기능은 없습니다.</p>
       <div class="table-scroll" tabindex="0" role="region" aria-label="7일 기록지 표, 좁은 화면에서는 좌우로 스크롤할 수 있습니다">
         <table class="worksheet-table">
           <thead><tr><th scope="col">날짜</th><th scope="col">오늘의 작은 일<br/>계획 / 실제 시간</th><th scope="col">방해받은 계기<br/>확인한 사실</th><th scope="col">선택의 기준 / 확인할 정보<br/>다음에 바꿀 한 가지</th></tr></thead>
@@ -913,17 +913,6 @@
     function printWorksheet() {
       document.getElementById("worksheetMsg").textContent = "인쇄 창에서 프린터 또는 PDF로 저장을 선택하세요.";
       window.print();
-    }
-    function downloadWorksheet() {
-      const rows = [["일차","날짜","오늘의 작은 일","계획 시간(분)","실제 시간(분)","방해받은 계기와 확인한 사실","선택 기준과 더 확인할 정보","다음에 바꿔볼 한 가지"]];
-      for (let day = 1; day <= 7; day++) rows.push([`${day}일`,"","","","","","",""]);
-      const csv = "\uFEFF" + rows.map(row => row.map(value => `"${value.replace(/"/g, '""')}"`).join(",")).join("\r\n");
-      const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-      const link = document.createElement("a");
-      link.href = url; link.download = "mind-wealth-code-7day-worksheet.csv";
-      document.body.appendChild(link); link.click(); link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-      document.getElementById("worksheetMsg").textContent = "빈 CSV 양식 다운로드를 요청했습니다. 브라우저의 다운로드 목록에서 확인하세요.";
     }
     async function shareResult() {
       const url = new URL(window.location.href);
