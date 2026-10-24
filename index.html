@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIND & WEALTH CODE | 다크 심리학 & 부의 알고리즘 30초 정밀 진단</title>
+  <meta name="description" content="당신의 뇌는 소비자입니까, 설계자입니까? 행동경제학과 다크 심리학 기반 4대 축(도파민 통제력, 프레임 권력, 결단력, 시스템 지능) 정밀 진단 테스트." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #06080F;
+      --bg-card: #0E1322;
+      --bg-card-hover: #141C32;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --gold: #F59E0B;
+      --gold-glow: rgba(245, 158, 11, 0.25);
+      --crimson: #EF4444;
+      --cyan: #38BDF8;
+      --emerald: #10B981;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--bg-deep);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(56, 189, 248, 0.08) 0%, transparent 45%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 24px 18px 80px;
+    }
+
+    /* Top Brand Bar */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(14, 19, 34, 0.85);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 24px;
+    }
+
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+    }
+
+    .live-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #CBD5E1;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--emerald);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.55; }
+    }
+
+    /* Cards */
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 32px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.3;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .highlight-gold {
+      color: var(--gold);
+      text-shadow: 0 0 24px rgba(245, 158, 11, 0.35);
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .stat-label {
+      font-size: 0.73rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 18px 24px;
+      font-size: 1.08rem;
+      font-weight: 800;
+      font-family: inherit;
+      color: #06080F;
+      background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 50%, #D97706 100%);
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(245, 158, 11, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Progress Bar */
+    .progress-wrap {
+      margin-bottom: 22px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--crimson));
+      border-radius: 99px;
+      width: 14%;
+      transition: width 0.3s ease;
+    }
+
+    .question-axis {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--cyan);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .question-title {
+      font-size: 1.28rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+      line-height: 1.42;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-btn {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      padding: 16px 18px;
+      border-radius: 16px;
+      font-size: 0.96rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .option-btn:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .opt-letter {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--gold);
+      background: rgba(245, 158, 11, 0.14);
+      padding: 3px 9px;
+      border-radius: 8px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Result Section */
+    .hidden {
+      display: none !important;
+    }
+
+    .result-tier-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(239, 68, 68, 0.16);
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      color: #FCA5A5;
+      margin-bottom: 12px;
+    }
+
+    .canvas-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      background: rgba(6, 8, 15, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .score-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px 0 26px;
+    }
+
+    .score-row-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .prescription-box {
+      background: rgba(245, 158, 11, 0.07);
+      border-left: 4px solid var(--gold);
+      padding: 16px 18px;
+      border-radius: 0 14px 14px 0;
+      margin-bottom: 24px;
+      font-size: 0.93rem;
+    }
+
+    /* Monetization / Affiliate / Ad Slots */
+    .monetization-card {
+      background: linear-gradient(145deg, rgba(20, 28, 50, 0.95), rgba(14, 19, 34, 0.95));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: 20px;
+      padding: 22px;
+      margin-top: 22px;
+    }
+
+    .monetization-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .affiliate-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-top: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+    }
+
+    .affiliate-item:hover {
+      border-color: var(--gold);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .affiliate-cta {
+      background: var(--gold);
+      color: #06080F;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 8px 14px;
+      border-radius: 10px;
+      white-space: nowrap;
+    }
+
+    .ad-slot-banner {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.25);
+      border-radius: 14px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .share-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn-secondary {
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      font-family: inherit;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--cyan);
+      background: rgba(56, 189, 248, 0.12);
+    }
+  </style>
+  <!-- VORTEX_ADSENSE_START --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8975980143082765" crossorigin="anonymous"></script><!-- VORTEX_ADSENSE_END -->
+</head>
+<body>
+  <div class="container">
+    <!-- Top Live Status Bar -->
+    <div class="topbar">
+      <div class="brand-badge">⚡ DARK ALGORITHM LAB</div>
+      <div class="live-pill">
+        <span class="pulse-dot"></span>
+        <span id="liveCount">38,492</span>명 진단 완료
+      </div>
+    </div>
+
+    <!-- STEP 1: LANDING SCREEN -->
+    <div id="screenIntro" class="glass-card">
+      <span class="hero-tag">PSYCHOLOGY × WEALTH ARCHITECTURE</span>
+      <h1>당신의 뇌는 <span class="highlight-gold">소비자</span>입니까,<br/>부의 <span class="highlight-gold">설계자</span>입니까?</h1>
+      <p class="subtitle">
+        유튜브 쇼츠 <strong>@DarkAlgorithmKR</strong> 공식 진단 도구.<br/>
+        단 7개의 심리·행동경제학 시나리오로 당신의 <strong>도파민 통제력, 인간관계 프레임 권력, 매몰비용 결단력, 무의식 수익화 지능</strong>을 정밀 스캔합니다.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num">30초</div>
+          <div class="stat-label">소요 시간</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">4대 축</div>
+          <div class="stat-label">뇌과학·심리 분석</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">상위 1%</div>
+          <div class="stat-label">맞춤형 처방전</div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="startTest()">
+        내 다크 심리 & 부의 코드 무료 스캔하기 →
+      </button>
+
+      <!-- Native AdSense / Affiliate Slot Preview -->
+      <div id="topAdContainer" class="ad-slot-banner">
+        💡 [수익화 슬롯 #1 - Google AdSense / Kakao AdFit 상단 네이티브 배너 영역]<br/>
+        쇼츠 고정 댓글 유입 시 첫 화면 CTR이 가장 높은 황금 영역입니다.
+      </div>
+    </div>
+
+    <!-- STEP 2: QUIZ SCREEN -->
+    <div id="screenQuiz" class="glass-card hidden">
+      <div class="progress-wrap">
+        <div class="progress-meta">
+          <span id="qStepText">QUESTION 01 / 07</span>
+          <span id="qPercentText">14%</span>
+        </div>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <span id="qAxis" class="question-axis">AXIS 01 · DOPAMINE CONTROL</span>
+      <div id="qTitle" class="question-title">질문 텍스트</div>
+      <div id="qOptions" class="options-list"></div>
+    </div>
+
+    <!-- STEP 3: ANALYZING LOADING SCREEN -->
+    <div id="screenLoading" class="glass-card hidden" style="text-align:center; padding: 60px 24px;">
+      <span class="hero-tag">NEURAL PATTERN SCANNING...</span>
+      <h2 style="font-size:1.45rem; margin-bottom:12px;">당신의 무의식 의사결정 패턴을<br/>상위 1% 데이터와 대조 중입니다</h2>
+      <p id="loadingSub" class="subtitle">도파민 보상 회로 민감도 연산 중...</p>
+    </div>
+
+    <!-- STEP 4: RESULT & MONETIZATION FUNNEL SCREEN -->
+    <div id="screenResult" class="glass-card hidden">
+      <div id="resBadge" class="result-tier-badge">TOP 2.4% ARCHITECT</div>
+      <h1 id="resTitle" style="font-size:1.65rem; margin-bottom:10px;">결과 타이틀</h1>
+      <p id="resDesc" class="subtitle" style="margin-bottom:16px;"></p>
+
+      <!-- 4-Axis Radar Chart -->
+      <div class="canvas-wrap">
+        <canvas id="radarCanvas" width="300" height="260"></canvas>
+      </div>
+
+      <!-- 4-Axis Score Breakdown -->
+      <div id="scoreBars" class="score-bars"></div>
+
+      <!-- Custom Prescription -->
+      <div class="prescription-box">
+        <strong style="color:var(--gold); display:block; margin-bottom:6px;">⚡ 오늘 밤 즉시 실행할 다크 프로토콜</strong>
+        <span id="resProtocol"></span>
+      </div>
+
+      <!-- HIGH-CONVERTING AFFILIATE / DIGITAL PRODUCT FUNNEL -->
+      <div class="monetization-card">
+        <span class="monetization-tag">🎯 AI 맞춤형 성장 무기 추천 (제휴 수익화 모듈)</span>
+        <h3 style="font-size:1.08rem; margin-bottom:6px;" id="affHeader">당신의 약점 축을 단숨에 상위 1%로 끌어올릴 시크릿 도구</h3>
+        <p style="font-size:0.83rem; color:var(--text-muted);" id="affSub">
+          진단 결과 가장 보완이 시급한 영역을 해결하기 위해 검증된 필독서 및 도구입니다.
+        </p>
+
+        <div id="affiliateList"></div>
+        <p id="coupangDisclaimer" style="font-size:0.72rem; color:var(--text-muted); margin-top:12px; opacity:0.8;"></p>
+      </div>
+
+      <div id="resultAdContainer" class="ad-slot-banner">
+        💡 [수익화 슬롯 #2 - 결과 하단 네이티브 반응형 애드센스 배너 영역]
+      </div>
+
+      <!-- Lead Magnet / High-Ticket PDF Upsell -->
+      <div class="monetization-card" style="border-color: rgba(56, 189, 248, 0.4); margin-top:14px;">
+        <span class="monetization-tag" style="color:var(--cyan);">📘 FREE VIP BLUEPRINT (이메일 DB 수집 / 전자책 퍼널)</span>
+        <h3 style="font-size:1.02rem; margin-bottom:8px;">[한정 공개] 다크 심리학 30일 실전 플레이북 PDF 무료 받기</h3>
+        <div style="display:flex; gap:8px; margin-top:10px;">
+          <input id="leadEmail" type="email" placeholder="받을 이메일 주소 입력" style="flex:1; padding:12px 14px; border-radius:12px; border:1px solid var(--border-subtle); background:rgba(0,0,0,0.4); color:#fff; font-family:inherit;" />
+          <button onclick="submitLead()" style="padding:12px 18px; border-radius:12px; border:none; background:var(--cyan); color:#06080F; font-weight:800; cursor:pointer;">무료 전송</button>
+        </div>
+        <p id="leadMsg" style="font-size:0.78rem; color:var(--emerald); margin-top:8px; display:none;">✅ 신청 완료! 당신의 메일함으로 VIP 플레이북이 발송되었습니다.</p>
+      </div>
+
+      <div class="share-row">
+        <button class="btn-secondary" onclick="shareResult()">🔗 내 진단 결과 공유하기</button>
+        <button class="btn-secondary" onclick="location.reload()">🔄 다시 테스트하기</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Configure your affiliate links / AdSense IDs here before deploying
+    const MONETIZATION_CONFIG = {
+      "adsense": {
+            "enabled": true,
+            "client_id": "ca-pub-0000000000000000",
+            "top_slot_id": "1111111111",
+            "result_slot_id": "2222222222"
+      },
+      "adfit": {
+            "enabled": false,
+            "unit_id": "DAN-XXXXXXXXXXXXXXXX"
+      },
+      "coupangPartnersNote": "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",
+      "recommendations": {
+            "dopamine": [
+                  {
+                        "title": "도파민네이션 (애나 렘키 저) - 뇌 보상회로 리셋 필독서",
+                        "sub": "공짜 도파민 중독을 끊고 초집중 뇌로 바꾸는 스탠퍼드대 정신과 교수의 역작",
+                        "cta": "최저가 확인 →",
+                        "url": "https://www.coupang.com/np/search?q=%EB%8F%84%ED%8C%8C%EB%AF%BC%EB%84%A4%EC%9D%B4%EC%85%98"
+                  },
+                  {
+                        "title": "무소음 타임타이머 모도로 (도파민 디톡스 딥워크 도구)",
+                        "sub": "스마트폰을 멀리하고 상위 1% 몰입 시간을 강제하는 물리적 시스템",
+                        "cta": "혜택가 보기 →",
+                        "url": "https://www.coupang.com/np/search?q=%ED%83%80%EC%9E%84%ED%83%80%EC%9D%B4%EB%A8%B8"
+                  }
+            ],
+            "frame": [
+                  {
+                        "title": "인간 본성의 법칙 (로버트 그린) - 다크 심리학 바이블",
+                        "sub": "관계의 주도권을 쥐고 만만한 사람에서 벗어나는 권력과 심리의 교과서",
+                        "cta": "도서 보기 →",
+                        "url": "https://www.coupang.com/np/search?q=%EC%9D%B8%EA%B0%84%EB%B3%B8%EC%84%B1%EC%9D%98%EB%B2%95%EC%B9%99"
+                  },
+                  {
+                        "title": "FBI 행동의 심리학 - 상대의 속마음을 3초 만에 읽는 기술",
+                        "sub": "협상과 대화에서 침묵과 비언어 시그널로 프레임을 지배하는 실전서",
+                        "cta": "최저가 확인 →",
+                        "url": "https://www.coupang.com/np/search?q=FBI+%ED%96%89%EB%8F%99%EC%9D%98+%EC%8B%AC%EB%A6%AC%ED%95%99"
+                  }
+            ],
+            "decision": [
+                  {
+                        "title": "생각에 관한 생각 (노벨 경제학상 대니얼 카너먼)",
+                        "sub": "매몰비용과 손실 회피 편향을 부수고 부자의 의사결정 회로를 이식하는 책",
+                        "cta": "도서 보기 →",
+                        "url": "https://www.coupang.com/np/search?q=%EC%83%9D%EA%B0%81%EC%97%90%EA%B4%80%ED%95%9C%EC%83%9D%EA%B0%81"
+                  }
+            ],
+            "system": [
+                  {
+                        "title": "부의 추월차선 & 레버리지 (잠든 사이 일하는 무인 시스템)",
+                        "sub": "시간과 노동을 팔지 않고 자산을 복리로 증식시키는 시스템 설계자의 교과서",
+                        "cta": "최저가 확인 →",
+                        "url": "https://www.coupang.com/np/search?q=%EB%B6%80%EC%9D%98%EC%B6%94%EC%9B%94%EC%B0%A8%EC%84%A0"
+                  }
+            ]
+      }
+};
+
+    const QUESTIONS = [
+      {
+        axis: "AXIS 01 · DOPAMINE CONTROL (도파민 통제력)",
+        key: "dopamine",
+        q: "퇴근 후 혹은 잠들기 전 1시간, 당신의 스마트폰 사용 패턴에 가장 가까운 것은?",
+        options: [
+          { text: "목적 없이 쇼츠·릴스·커뮤니티를 넘기다 정신 차리면 1시간이 훌쩍 지나 있다.", score: 35 },
+          { text: "유튜브를 보긴 하지만 주로 경제·지식·인사이트 채널을 골라 보려 노력한다.", score: 68 },
+          { text: "취침 1시간 전엔 알림을 끄고, 내일 수익이나 목표를 만드는 구상·독서에 집중한다.", score: 96 }
+        ]
+      },
+      {
+        axis: "AXIS 02 · DARK FRAME POWER (관계 프레임 권력)",
+        key: "frame",
+        q: "지인이나 동료가 은근히 나를 낮추는 농담이나 선 넘는 부탁을 했을 때 당신의 첫 반응은?",
+        options: [
+          { text: "분위기를 깨기 싫어 어색하게 웃어넘기거나 변명하며 들어주고 집에서 후회한다.", score: 32 },
+          { text: "기분 나쁜 티를 내거나 그 자리에서 감정적으로 바로 맞받아친다.", score: 60 },
+          { text: "웃지 않고 3초간 침묵하며 상대의 눈을 바라본 뒤 '방금 무슨 뜻으로 한 말인가요?'라고 되묻는다.", score: 98 }
+        ]
+      },
+      {
+        axis: "AXIS 03 · ZERO-BASE DECISION (매몰비용 결단력)",
+        key: "decision",
+        q: "이미 1년 넘게 시간과 돈을 쏟은 프로젝트(혹은 투자·관계)가 명백히 잘못된 방향임을 깨달았을 때?",
+        options: [
+          { text: "지금까지 들어간 돈과 시간이 아까워서 본전이라도 찾을 때까지 끝까지 붙잡는다.", score: 30 },
+          { text: "손절해야 한다는 건 알지만 결정을 미루며 스트레스만 받는다.", score: 58 },
+          { text: "'오늘 처음 시작한다면 다시 선택할까?' 자문한 뒤, 아니라면 당일 즉시 손절한다.", score: 95 }
+        ]
+      },
+      {
+        axis: "AXIS 04 · WEALTH SYSTEM IQ (무인 시스템 지능)",
+        key: "system",
+        q: "새로운 수익 기회나 도구를 봤을 때 당신의 뇌가 가장 먼저 던지는 질문은?",
+        options: [
+          { text: "'재밌겠다 / 부럽다' 생각만 하고 나랑은 다른 세상 이야기라며 넘긴다.", score: 34 },
+          { text: "'내가 직접 시간을 갈아 넣어서 해볼까?' 하고 내 노동력을 투입할 방법만 찾는다.", score: 65 },
+          { text: "'이걸 AI와 시스템으로 자동화해서 내가 자는 동안에도 돌아가게 만들려면 어떻게 짤까?'를 설계한다.", score: 98 }
+        ]
+      },
+      {
+        axis: "AXIS 05 · SCARCITY POSITIONING (희소가치 설계)",
+        key: "frame",
+        q: "타인의 연락이나 요청에 응답하는 당신만의 기준이 있습니까?",
+        options: [
+          { text: "누가 연락하든 1분 안에 칼답하고 언제 부르든 달려간다.", score: 38 },
+          { text: "바쁠 때만 늦게 답장하고 평소엔 남들 눈치를 보며 맞춰준다.", score: 64 },
+          { text: "내 몰입 시간과 우선순위가 절대적이며, 내 시간과 호의가 당연하지 않음을 명확히 인지시킨다.", score: 94 }
+        ]
+      },
+      {
+        axis: "AXIS 06 · SUBCONSCIOUS PROGRAMMING (수면 세타파 활용)",
+        key: "dopamine",
+        q: "잠들기 직전 눈을 감은 마지막 5분, 당신의 머릿속을 채우는 생각은?",
+        options: [
+          { text: "오늘 있었던 짜증 나는 일이나 내일 출근 걱정, 막연한 불안감", score: 35 },
+          { text: "아무 생각 없이 방금 본 영상 잔상이나 피로감에 곯아떨어진다.", score: 62 },
+          { text: "해결하고 싶은 핵심 질문 1가지를 무의식에 던져놓고 해답을 기대하며 잠든다.", score: 96 }
+        ]
+      },
+      {
+        axis: "AXIS 07 · LEVERAGE EXECUTION (실행 레버리지)",
+        key: "system",
+        q: "완벽한 계획 vs 빠른 시스템 오픈 중 당신의 실행 스타일은?",
+        options: [
+          { text: "준비만 몇 달째 하다가 결국 시작도 못 하고 포기한다.", score: 30 },
+          { text: "일단 시작은 하지만 수작업에 지쳐 2주 만에 번아웃이 온다.", score: 64 },
+          { text: "80% 수준에서 즉시 파이프라인을 가동하고 데이터를 보며 시스템을 개선한다.", score: 96 }
+        ]
+      }
+    ];
+
+    let currentIdx = 0;
+    let totals = { dopamine: [], frame: [], decision: [], system: [] };
+
+    // Live participant counter animation
+    setInterval(() => {
+      const el = document.getElementById("liveCount");
+      const val = parseInt(el.innerText.replace(/,/g, ""), 10) + Math.floor(Math.random() * 3);
+      el.innerText = val.toLocaleString();
+    }, 3500);
+
+    function startTest() {
+      document.getElementById("screenIntro").classList.add("hidden");
+      document.getElementById("screenQuiz").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const item = QUESTIONS[currentIdx];
+      const pct = Math.round(((currentIdx + 1) / QUESTIONS.length) * 100);
+      document.getElementById("qStepText").innerText = `QUESTION 0${currentIdx + 1} / 0${QUESTIONS.length}`;
+      document.getElementById("qPercentText").innerText = `${pct}%`;
+      document.getElementById("progressBar").style.width = `${pct}%`;
+      document.getElementById("qAxis").innerText = item.axis;
+      document.getElementById("qTitle").innerText = item.q;
+
+      const list = document.getElementById("qOptions");
+      list.innerHTML = "";
+      const letters = ["A", "B", "C"];
+      item.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.innerHTML = `<span class="opt-letter">${letters[idx]}</span><span>${opt.text}</span>`;
+        btn.onclick = () => selectOption(item.key, opt.score);
+        list.appendChild(btn);
+      });
+    }
+
+    function selectOption(key, score) {
+      totals[key].push(score);
+      currentIdx++;
+      if (currentIdx < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showLoadingAndResult();
+      }
+    }
+
+    function avg(arr) {
+      if (!arr || !arr.length) return 60;
+      return Math.round(arr.reduce((a, b) => a + b, 0) / arr.length);
+    }
+
+    function showLoadingAndResult() {
+      document.getElementById("screenQuiz").classList.add("hidden");
+      document.getElementById("screenLoading").classList.remove("hidden");
+
+      const msgs = [
+        "도파민 보상 회로 민감도 연산 중...",
+        "인간관계 프레임 방어력 및 권력 지수 스캔 중...",
+        "상위 1% 부의 설계자 아키텍처와 매칭 중..."
+      ];
+      let mIdx = 0;
+      const timer = setInterval(() => {
+        mIdx++;
+        if (mIdx < msgs.length) {
+          document.getElementById("loadingSub").innerText = msgs[mIdx];
+        }
+      }, 550);
+
+      setTimeout(() => {
+        clearInterval(timer);
+        document.getElementById("screenLoading").classList.add("hidden");
+        document.getElementById("screenResult").classList.remove("hidden");
+        renderResult();
+      }, 1700);
+    }
+
+    function renderResult() {
+      const scores = {
+        dopamine: avg(totals.dopamine),
+        frame: avg(totals.frame),
+        decision: avg(totals.decision),
+        system: avg(totals.system)
+      };
+      const overall = Math.round((scores.dopamine + scores.frame + scores.decision + scores.system) / 4);
+
+      let badge, title, desc, protocol;
+      if (overall >= 85) {
+        badge = "상위 1.4% · SHADOW ARCHITECT (섀도우 아키텍트)";
+        title = "판의 규칙을 설계하는 '냉철한 무인 시스템 지배자'";
+        desc = "당신은 감정에 휘둘리지 않고 도파민과 인간관계의 프레임을 통제하는 상위 1%의 뇌 구조를 가졌습니다. 이제 당신의 통찰을 24시간 돌아가는 무인 파이프라인에 연결하기만 하면 폭발적인 자산 증식이 일어납니다.";
+        protocol = "오늘 밤 잠들기 전, 당신이 수작업으로 하던 일 중 가장 반복적인 1가지를 AI 자동화 파이프라인으로 위임하세요.";
+      } else if (overall >= 62) {
+        badge = "상위 14.8% · AWAKENING STRATEGIST (각성 직전의 전략가)";
+        title = "잠재력은 상위권이나 '도파민 누수'가 아까운 전략가";
+        desc = "부와 심리의 법칙을 머리로는 정확히 이해하고 있습니다. 하지만 간헐적인 값싼 도파민(숏폼·미루기)이나 매몰비용에 대한 미련이 당신의 실행 속도를 갉아먹고 있습니다. 단 한 개의 습관 스위치만 바꾸면 상위 1%로 도약합니다.";
+        protocol = "오늘 밤 취침 30분 전 스마트폰을 침대 밖으로 치우고, 내일 아침 가장 먼저 끝낼 '수익 직결 핵심 과제 1개'만 적고 눈을 감으세요.";
+      } else {
+        badge = "WARNING · DOPAMINE CONSUMER (도파민 소비자 모드)";
+        title = "남들이 설계한 알고리즘에 에너지를 빼앗긴 상태";
+        desc = "현재 당신의 뇌 보상 회로는 즉각적인 자극과 타인의 시선에 과도하게 노출되어 있습니다. 의지력의 문제가 아니라 '환경 설계'의 문제입니다. 지금 즉시 도파민 디톡스와 프레임 방어 훈련을 시작해야 합니다.";
+        protocol = "내일 누군가 무례하거나 불필요한 요구를 할 때 절대 즉시 대답하지 말고 '3초 침묵' 법칙을 딱 한 번만 실행해 보세요. 뇌의 주도권이 돌아옵니다.";
+      }
+
+      document.getElementById("resBadge").innerText = badge;
+      document.getElementById("resTitle").innerText = title;
+      document.getElementById("resDesc").innerText = desc;
+      document.getElementById("resProtocol").innerText = protocol;
+
+      // Render Score Bars
+      const labels = [
+        { k: "dopamine", name: "🧠 도파민 통제력 (Dopamine Mastery)", color: "#F59E0B" },
+        { k: "frame", name: "🎭 다크 프레임 권력 (Frame Control)", color: "#EF4444" },
+        { k: "decision", name: "⚡ 매몰비용 결단력 (Zero-Base IQ)", color: "#38BDF8" },
+        { k: "system", name: "⚙️ 무인 수익 시스템화 (Automation IQ)", color: "#10B981" }
+      ];
+
+      const barsEl = document.getElementById("scoreBars");
+      barsEl.innerHTML = "";
+      labels.forEach(item => {
+        const val = scores[item.k];
+        barsEl.innerHTML += `
+          <div>
+            <div class="score-row-top">
+              <span>${item.name}</span>
+              <span style="color:${item.color}; font-family:'JetBrains Mono',monospace;">${val} / 100</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width:${val}%; background:${item.color};"></div>
+            </div>
+          </div>
+        `;
+      });
+
+      drawRadar(scores);
+
+      // Find weakest axis to personalize affiliate recommendations (Higher conversion!)
+      const sortedAxes = Object.entries(scores).sort((a, b) => a[1] - b[1]);
+      const weakestKey = sortedAxes[0][0];
+      const recs = MONETIZATION_CONFIG.recommendations[weakestKey] || MONETIZATION_CONFIG.recommendations.dopamine;
+      const extraRecs = MONETIZATION_CONFIG.recommendations.system;
+      const combinedRecs = [...recs, ...extraRecs].slice(0, 2);
+
+      const affList = document.getElementById("affiliateList");
+      affList.innerHTML = "";
+      combinedRecs.forEach(r => {
+        const imgTag = r.image ? `<img src="${r.image}" alt="" style="width:54px; height:54px; border-radius:10px; object-fit:cover; flex-shrink:0; border:1px solid rgba(255,255,255,0.12);" />` : "";
+        affList.innerHTML += `
+          <a class="affiliate-item" href="${r.url}" target="_blank" rel="noopener">
+            <div style="display:flex; align-items:center; gap:12px;">
+              ${imgTag}
+              <div>
+                <div style="font-weight:700; font-size:0.94rem; margin-bottom:3px;">${r.title}</div>
+                <div style="font-size:0.78rem; color:var(--text-muted);">${r.sub}</div>
+              </div>
+            </div>
+            <span class="affiliate-cta">${r.cta}</span>
+          </a>
+        `;
+      });
+      const discEl = document.getElementById("coupangDisclaimer");
+      if (discEl && MONETIZATION_CONFIG.coupangPartnersNote) {
+        discEl.innerText = "※ " + MONETIZATION_CONFIG.coupangPartnersNote;
+      }
+    }
+
+    function initAdSlots() {
+      const ads = MONETIZATION_CONFIG.adsense;
+      const adfit = MONETIZATION_CONFIG.adfit;
+      const topBox = document.getElementById("topAdContainer");
+      const resBox = document.getElementById("resultAdContainer");
+
+      if (ads && ads.enabled && ads.client_id && ads.client_id !== "ca-pub-0000000000000000") {
+        const makeIns = (slotId) => `
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="${ads.client_id}"
+               data-ad-slot="${slotId || ''}"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+        `;
+        if (topBox) topBox.innerHTML = makeIns(ads.top_slot_id);
+        if (resBox) resBox.innerHTML = makeIns(ads.result_slot_id);
+        try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+      } else if (adfit && adfit.enabled && adfit.unit_id && !adfit.unit_id.includes("XXXX")) {
+        if (topBox) {
+          topBox.innerHTML = `<ins class="kakao_ad_area" style="display:none;" data-ad-unit="${adfit.unit_id}" data-ad-width="320" data-ad-height="100"></ins>`;
+          const s = document.createElement("script");
+          s.async = true;
+          s.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+          document.body.appendChild(s);
+        }
+      }
+    }
+    initAdSlots();
+
+    function drawRadar(scores) {
+      const canvas = document.getElementById("radarCanvas");
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const radius = 88;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw concentric diamond webs
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.12)";
+      ctx.lineWidth = 1;
+      [0.33, 0.66, 1.0].forEach(level => {
+        const r = radius * level;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - r);
+        ctx.lineTo(cx + r, cy);
+        ctx.lineTo(cx, cy + r);
+        ctx.lineTo(cx - r, cy);
+        ctx.closePath();
+        ctx.stroke();
+      });
+
+      // Axes lines
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - radius);
+      ctx.lineTo(cx, cy + radius);
+      ctx.moveTo(cx - radius, cy);
+      ctx.lineTo(cx + radius, cy);
+      ctx.stroke();
+
+      // Plot user polygon
+      const pTop = (scores.dopamine / 100) * radius;
+      const pRight = (scores.frame / 100) * radius;
+      const pBottom = (scores.decision / 100) * radius;
+      const pLeft = (scores.system / 100) * radius;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - pTop);
+      ctx.lineTo(cx + pRight, cy);
+      ctx.lineTo(cx, cy + pBottom);
+      ctx.lineTo(cx - pLeft, cy);
+      ctx.closePath();
+      ctx.fillStyle = "rgba(245, 158, 11, 0.28)";
+      ctx.fill();
+      ctx.strokeStyle = "#F59E0B";
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Labels
+      ctx.fillStyle = "#E2E8F0";
+      ctx.font = "bold 12px 'Noto Sans KR', sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(`도파민 ${scores.dopamine}`, cx, cy - radius - 12);
+      ctx.fillText(`결단력 ${scores.decision}`, cx, cy + radius + 20);
+      ctx.textAlign = "left";
+      ctx.fillText(`프레임 ${scores.frame}`, cx + radius + 10, cy + 4);
+      ctx.textAlign = "right";
+      ctx.fillText(`시스템 ${scores.system}`, cx - radius - 10, cy + 4);
+    }
+
+    function submitLead() {
+      const email = document.getElementById("leadEmail").value.trim();
+      if (!email || !email.includes("@")) {
+        alert("유효한 이메일 주소를 입력해주세요.");
+        return;
+      }
+      document.getElementById("leadMsg").style.display = "block";
+    }
+
+    function shareResult() {
+      const title = document.getElementById("resBadge").innerText;
+      const text = `[MIND & WEALTH CODE] 내 다크 심리 & 부의 알고리즘 진단 결과: ${title}\n30초 만에 무료 진단하기 👉`;
+      if (navigator.share) {
+        navigator.share({ title: "MIND & WEALTH CODE", text, url: window.location.href });
+      } else {
+        navigator.clipboard.writeText(`${text} ${window.location.href}`);
+        alert("진단 결과와 링크가 클립보드에 복사되었습니다! 카카오톡이나 인스타그램에 공유해보세요.");
+      }
+    }
+  </script>
+</body>
+</html>
