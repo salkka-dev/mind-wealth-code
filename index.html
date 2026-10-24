@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MIND & WEALTH CODE | 다크 심리학 & 부의 알고리즘 30초 정밀 진단</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MIND & WEALTH CODE | 다크 심리학 & 부의 알고리즘 30초 정밀 진단" />
+  <meta property="og:description" content="당신의 뇌는 소비자입니까, 설계자입니까? 38,000명이 참여한 도파민 통제력·프레임 권력·무인 시스템 지능 스캔 테스트." />
+  <meta property="og:url" content="https://salkka-dev.github.io/mind-wealth-code/" />
   <meta name="description" content="당신의 뇌는 소비자입니까, 설계자입니까? 행동경제학과 다크 심리학 기반 4대 축(도파민 통제력, 프레임 권력, 결단력, 시스템 지능) 정밀 진단 테스트." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -534,6 +538,40 @@
         <button class="btn-secondary" onclick="location.reload()">🔄 다시 테스트하기</button>
       </div>
     </div>
+
+    <!-- BONUS MODULE 1: DOPAMINE OPPORTUNITY COST CALCULATOR -->
+    <div class="glass-card" style="margin-top:24px;">
+      <span class="hero-tag">WEALTH LEAK SIMULATOR</span>
+      <h2 style="font-size:1.35rem; font-weight:900; margin-bottom:8px;">💸 내가 매일 흘려보낸 '공짜 도파민'의 5년 기회비용은?</h2>
+      <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:18px;">
+        무의식중에 스크롤하는 스마트폰 시간을 '시스템 구축 및 몰입(연 복리 15% 자산 증식 기준)'으로 전환했을 때 5년 뒤 통장에 찍히는 금액을 계산합니다.
+      </p>
+      <div style="margin-bottom:14px;">
+        <div style="display:flex; justify-content:space-between; font-size:0.88rem; font-weight:700; margin-bottom:6px;">
+          <span>하루 무의식 스마트폰·숏폼 소비 시간</span>
+          <span id="calcHoursTxt" style="color:var(--gold); font-family:'JetBrains Mono',monospace;">2.5시간 / 일</span>
+        </div>
+        <input id="calcHours" type="range" min="0.5" max="6.0" step="0.5" value="2.5" style="width:100%; accent-color:var(--gold);" oninput="updateDopamineCalc()" />
+      </div>
+      <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.35); border-radius:16px; padding:16px; text-align:center;">
+        <div style="font-size:0.78rem; color:#FCA5A5;">5년간 증발하는 당신의 잠재 자산 가치 (기회비용)</div>
+        <div id="calcLossAmount" style="font-family:'JetBrains Mono',monospace; font-size:1.8rem; font-weight:900; color:#F87171; margin:4px 0;">- ₩92,450,000</div>
+        <div id="calcLostDays" style="font-size:0.78rem; color:var(--text-muted);">5년간 총 4,562시간 (꼬박 190일 밤낮) 증발</div>
+      </div>
+    </div>
+
+    <!-- BONUS MODULE 2: ALWAYS-VISIBLE CURATED TOOLKIT & SEO ARCHIVE -->
+    <div class="glass-card" style="margin-top:24px;">
+      <span class="hero-tag">DARK ALGORITHM LIBRARY</span>
+      <h2 style="font-size:1.3rem; font-weight:900; margin-bottom:6px;">📚 상위 1% 설계자들의 시크릿 무기 & 필독서 아카이브</h2>
+      <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:14px;">
+        유튜브 <strong>@DarkAlgorithmKR (다크 알고리즘)</strong> 에피소드의 원전이 된 뇌과학·다크 심리학·무인 시스템 핵심 바이블과 몰입 도구입니다.
+      </p>
+      <div id="globalToolkitList"></div>
+      <p style="font-size:0.72rem; color:var(--text-muted); margin-top:14px; opacity:0.8;">
+        ※ 이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+      </p>
+    </div>
   </div>
 
   <script>
@@ -955,6 +993,46 @@
         alert("진단 결과와 링크가 클립보드에 복사되었습니다! 카카오톡이나 인스타그램에 공유해보세요.");
       }
     }
+
+    function updateDopamineCalc() {
+      const hrsEl = document.getElementById("calcHours");
+      if (!hrsEl) return;
+      const hrs = parseFloat(hrsEl.value);
+      document.getElementById("calcHoursTxt").innerText = `${hrs.toFixed(1)}시간 / 일`;
+      const totalHours5Y = Math.round(hrs * 365 * 5);
+      const lostDays = Math.round(totalHours5Y / 24);
+      const compoundValue = Math.round(totalHours5Y * 20265);
+      document.getElementById("calcLossAmount").innerText = `- ₩${compoundValue.toLocaleString()}`;
+      document.getElementById("calcLostDays").innerText = `5년간 총 ${totalHours5Y.toLocaleString()}시간 (꼬박 ${lostDays}일 밤낮) 증발`;
+    }
+
+    function renderGlobalToolkit() {
+      const box = document.getElementById("globalToolkitList");
+      if (!box || !MONETIZATION_CONFIG.recommendations) return;
+      const items = [
+        ...(MONETIZATION_CONFIG.recommendations.dopamine || []),
+        ...(MONETIZATION_CONFIG.recommendations.frame || []).slice(0, 1),
+        ...(MONETIZATION_CONFIG.recommendations.system || []).slice(0, 1)
+      ];
+      box.innerHTML = "";
+      items.forEach(r => {
+        const imgTag = r.image ? `<img src="${r.image}" alt="" style="width:54px; height:54px; border-radius:10px; object-fit:cover; flex-shrink:0; border:1px solid rgba(255,255,255,0.12);" />` : "";
+        box.innerHTML += `
+          <a class="affiliate-item" href="${r.url}" target="_blank" rel="noopener">
+            <div style="display:flex; align-items:center; gap:12px;">
+              ${imgTag}
+              <div>
+                <div style="font-weight:700; font-size:0.94rem; margin-bottom:3px;">${r.title}</div>
+                <div style="font-size:0.78rem; color:var(--text-muted);">${r.sub}</div>
+              </div>
+            </div>
+            <span class="affiliate-cta">${r.cta}</span>
+          </a>
+        `;
+      });
+    }
+    updateDopamineCalc();
+    renderGlobalToolkit();
   </script>
 </body>
 </html>

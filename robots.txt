@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://salkka-dev.github.io/mind-wealth-code/sitemap.xml
