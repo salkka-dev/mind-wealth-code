@@ -477,16 +477,65 @@
       .worksheet-prompt { font-size: 9pt; }
       .worksheet-table tr { break-inside: avoid; }
     }
-  </style>
-  <!-- VORTEX_ADSENSE_START --><script>
-    if (!['localhost', '127.0.0.1', '[::1]', '::1'].includes(location.hostname) && location.protocol !== 'file:') {
-      const adScript = document.createElement('script');
-      adScript.async = true;
-      adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8975980143082765';
-      adScript.crossOrigin = 'anonymous';
-      document.head.appendChild(adScript);
+
+    .quick-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      margin-bottom: 18px;
+      scrollbar-width: none;
     }
-  </script><!-- VORTEX_ADSENSE_END -->
+    .quick-pills::-webkit-scrollbar { display: none; }
+    .quick-pill {
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #FDE68A;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 7px 13px;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .quick-pill:hover {
+      background: var(--gold);
+      color: #06080F;
+    }
+    .floating-proof {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 28px);
+      max-width: 540px;
+      background: rgba(14, 19, 34, 0.96);
+      border: 1px solid rgba(245, 158, 11, 0.55);
+      border-radius: 16px;
+      padding: 11px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      z-index: 990;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+    .floating-proof-btn {
+      background: var(--gold);
+      color: #06080F;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 12px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+  </style>
+  <!-- VORTEX_ADSENSE_START --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8975980143082765" crossorigin="anonymous"></script><!-- VORTEX_ADSENSE_END -->
 </head>
 <body>
   <div class="container">
@@ -509,6 +558,16 @@
         <div class="stat-box"><div class="stat-num">4가지</div><div class="stat-label">답변 점수 요약</div></div>
         <div class="stat-box"><div class="stat-num">7일</div><div class="stat-label">무료 기록지</div></div>
       </div>
+      <div style="margin-bottom:16px;">
+        <div style="font-size:0.76rem; color:var(--text-muted); margin-bottom:7px; font-weight:700;">🔥 방금 본 쇼츠 핵심 도서·도구 즉시 보기 (쿠팡 최저가)</div>
+        <div class="quick-pills">
+          <a class="quick-pill" href="https://link.coupang.com/a/h7ftZBXNAq" target="_blank" rel="noopener">📕 도파민네이션 (16,200원) ↗</a>
+          <a class="quick-pill" href="https://link.coupang.com/a/h7fw6LDvoG" target="_blank" rel="noopener">⏱️ 타임타이머 MOD ↗</a>
+          <a class="quick-pill" href="https://link.coupang.com/a/h7fzbSNngW" target="_blank" rel="noopener">🎭 인간 본성의 법칙 ↗</a>
+          <a class="quick-pill" href="https://link.coupang.com/a/h7fBNLjOPk" target="_blank" rel="noopener">🚀 부의 추월차선 ↗</a>
+        </div>
+      </div>
+
       <button class="btn-primary" onclick="startTest()">내 습관 자기점검 시작하기 →</button>
       <p class="note">이 페이지는 일상 성찰용입니다. 과학적으로 검증된 심리검사나 건강·재무 진단이 아니며, 다른 사람과 비교한 순위를 제공하지 않습니다. 응답은 이 페이지의 메모리에서만 계산합니다.</p>
       <div id="topAdContainer" class="ad-slot-banner" aria-label="광고"></div>
@@ -657,6 +716,14 @@
     </footer>
   </div>
 
+
+  <a id="floatingBar" class="floating-proof" href="https://link.coupang.com/a/h7ftZBXNAq" target="_blank" rel="noopener">
+    <div style="font-size:0.8rem; line-height:1.35;">
+      <span style="color:var(--gold); font-weight:800;" id="floatBadge">⚡ 실시간 인기</span>
+      <span id="floatText" style="margin-left:4px;">쇼츠 시청자 42명이 '도파민네이션'을 확인 중입니다</span>
+    </div>
+    <span class="floating-proof-btn">최저가 보기 →</span>
+  </a>
   <script>
     const MONETIZATION_CONFIG = {
       "adsense": {
@@ -673,50 +740,50 @@
       "recommendations": {
             "dopamine": [
                   {
-                        "title": "도파민네이션 · 애나 렘키",
-                        "sub": "보상 자극과 일상 습관에 대한 저자의 논의를 읽고 싶은 분을 위한 참고 도서입니다.",
-                        "cta": "상품 정보 확인 →",
+                        "title": "도파민네이션: 쾌락 과잉 시대에서 균형 찾기 (애나 렘키)",
+                        "sub": "공짜 도파민 중독을 끊고 초집중 뇌로 리셋하는 스탠퍼드대 교수의 필독서 · 16,200원",
+                        "cta": "쿠팡 최저가 보기 →",
                         "url": "https://link.coupang.com/a/h7ftZBXNAq",
                         "image": "https://t5c.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/4631/09e401177e3229989dda087d1520030cb52e2ff4b8fccd1a65d65207b917.jpg"
                   },
                   {
-                        "title": "타임타이머 MOD 클래식 · 탁상 타이머",
-                        "sub": "휴대폰과 분리된 타이머를 고려할 때 비교할 수 있는 도구입니다.",
-                        "cta": "상품 정보 확인 →",
+                        "title": "타임타이머 MOD 클래식 딥워크 탁상시계 (차콜)",
+                        "sub": "스마트폰을 멀리하고 상위 1% 몰입 시간을 강제하는 물리적 도파민 차단기 · 55,800원",
+                        "cta": "로켓/혜택가 보기 →",
                         "url": "https://link.coupang.com/a/h7fw6LDvoG",
                         "image": "https://thumbnail11.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/image_audit/prod/478e0679-2734-4bb0-8b91-e9e2d304e372_fixing_v2.png"
                   }
             ],
             "frame": [
                   {
-                        "title": "인간 본성의 법칙 · 로버트 그린",
-                        "sub": "사람의 행동에 대한 저자의 해석과 사례를 읽고 싶은 분을 위한 참고 도서입니다.",
-                        "cta": "상품 정보 확인 →",
+                        "title": "인간 본성의 법칙 (로버트 그린, 위즈덤하우스)",
+                        "sub": "관계의 주도권을 쥐고 만만한 사람에서 벗어나는 다크 심리학 바이블 · 34,200원",
+                        "cta": "쿠팡 도서 보기 →",
                         "url": "https://link.coupang.com/a/h7fzbSNngW",
                         "image": "https://thumbnail4.coupangcdn.com/thumbnails/remote/212x212ex/image/retail-product-api/A00077021/2506885/3969062/main/9791190182560_L.jpg"
                   },
                   {
-                        "title": "도파민네이션 · 애나 렘키",
-                        "sub": "보상 자극과 일상 습관에 대한 저자의 논의를 읽고 싶은 분을 위한 참고 도서입니다.",
-                        "cta": "상품 정보 확인 →",
+                        "title": "도파민네이션: 쾌락 과잉 시대에서 균형 찾기 (애나 렘키)",
+                        "sub": "감정과 충동을 통제하고 협상 프레임을 장악하는 뇌과학 필독서 · 16,200원",
+                        "cta": "쿠팡 최저가 보기 →",
                         "url": "https://link.coupang.com/a/h7ftZBXNAq",
                         "image": "https://t5c.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/4631/09e401177e3229989dda087d1520030cb52e2ff4b8fccd1a65d65207b917.jpg"
                   }
             ],
             "decision": [
                   {
-                        "title": "부의 추월차선 · 엠제이 드마코",
-                        "sub": "사업과 시간 사용에 관한 저자의 관점을 비교하며 읽을 수 있는 도서입니다.",
-                        "cta": "상품 정보 확인 →",
+                        "title": "부의 추월차선 (10주년 스페셜 에디션 세트)",
+                        "sub": "매몰비용을 끊어내고 잠든 사이 일하는 무인 수익 시스템을 설계하는 교과서 · 15,750원",
+                        "cta": "쿠팡 최저가 보기 →",
                         "url": "https://link.coupang.com/a/h7fBNLjOPk",
                         "image": "https://thumbnail10.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/edbe/6b7cdf453a9ffe8ad9115ccaff55f56e5c843ade35d19cd29d5616753369.png"
                   }
             ],
             "system": [
                   {
-                        "title": "부의 추월차선 · 엠제이 드마코",
-                        "sub": "사업과 시간 사용에 관한 저자의 관점을 비교하며 읽을 수 있는 도서입니다.",
-                        "cta": "상품 정보 확인 →",
+                        "title": "부의 추월차선 (10주년 스페셜 에디션 + 미니수첩 세트)",
+                        "sub": "시간과 노동을 팔지 않고 자산을 복리로 증식시키는 시스템 설계자의 바이블 · 15,750원",
+                        "cta": "쿠팡 최저가 보기 →",
                         "url": "https://link.coupang.com/a/h7fBNLjOPk",
                         "image": "https://thumbnail10.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/edbe/6b7cdf453a9ffe8ad9115ccaff55f56e5c843ade35d19cd29d5616753369.png"
                   }
@@ -929,6 +996,26 @@
     }
     updateTimeCalc();
     initAdSlots();
+
+    const FLOAT_ITEMS = [
+      { badge: "⚡ 쇼츠 1화 원전", text: "시청자 42명이 '도파민네이션' 최저가를 확인 중입니다", url: "https://link.coupang.com/a/h7ftZBXNAq" },
+      { badge: "🔥 딥워크 필수템", text: "상위 1% 몰입 도구 '타임타이머 MOD' 로켓혜택 보기", url: "https://link.coupang.com/a/h7fw6LDvoG" },
+      { badge: "🎭 다크 심리 바이블", text: "만만한 사람에서 벗어나는 '인간 본성의 법칙' 보기", url: "https://link.coupang.com/a/h7fzbSNngW" },
+      { badge: "💰 무인 시스템 설계", text: "잠든 사이 일하는 '부의 추월차선 10주년판' 확인하기", url: "https://link.coupang.com/a/h7fBNLjOPk" }
+    ];
+    let fIdx = 0;
+    setInterval(() => {
+      fIdx = (fIdx + 1) % FLOAT_ITEMS.length;
+      const item = FLOAT_ITEMS[fIdx];
+      const bar = document.getElementById("floatingBar");
+      const bEl = document.getElementById("floatBadge");
+      const tEl = document.getElementById("floatText");
+      if (bar && bEl && tEl) {
+        bar.href = item.url;
+        bEl.innerText = item.badge;
+        tEl.innerText = item.text;
+      }
+    }, 4500);
   </script>
 </body>
 </html>
